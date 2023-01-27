@@ -8,3 +8,73 @@ Text Encoding for Swift
 ### Current features
 - Base64 encoding
 - Hex encoding
+
+### Usage
+
+Import `SwiftEncoding` to your `Package.swift` as a dependency
+
+```swift
+// swift-tools-version: 5.7
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+import PackageDescription
+
+let package = Package(
+    name: "MyApp",
+    dependencies: [
+        .package(url: "https://github.com/telkomdev/SwiftEncoding.git", from: "1.0.0"),
+    ],
+    targets: [
+        .executableTarget(
+            name: "MyApp",
+            dependencies: [
+                .byName(name: "SwiftEncoding")
+            ]),
+        .testTarget(
+            name: "MyAppTests",
+            dependencies: ["MyApp"]),
+    ]
+)
+```
+
+Encode text with `Base64`
+```swift
+import SwiftEncoding
+
+@main
+public struct App {
+
+    public static func main() {
+        let base64EncodeRes = encodeBase64(data: "swift is cool")
+        print(base64EncodeRes)
+
+        do {
+            let base64DecodeRes = try decodeBase64(data: base64EncodeRes)
+            print(base64DecodeRes)
+        } catch {
+            print("base64 decode error")
+        }
+    }
+}
+```
+
+Encode text with `Hex`
+```swift
+import SwiftEncoding
+
+@main
+public struct App {
+
+    public static func main() {
+        let hexEncodeRes = encodeHex(data: "swift is cool")
+        print(hexEncodeRes)
+
+        do {
+            let hexDecodeRes = try decodeHex(data: hexEncodeRes)
+            print(hexDecodeRes)
+        } catch {
+            print("hex decode error")
+        }
+    }
+}
+```

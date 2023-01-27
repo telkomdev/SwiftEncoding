@@ -14,6 +14,12 @@ final class Base64Tests: XCTestCase {
         XCTAssertNotEqual(encodeBase64(data: "wuriyanto"), expected)
     }
 
+    func testBase64EncodeUInt8ArrayShouldEqualToExpected() throws {
+        let expected: String = "c3dpZnQgZm9yIGlvcw=="
+
+        XCTAssertEqual(encodeBase64(data: [115, 119, 105, 102, 116, 32, 102, 111, 114, 32, 105, 111, 115]), expected)
+    }
+
     func testBase64DecodeShouldEqualToExpected() throws {
         let expected: String = "wuriyanto"
 

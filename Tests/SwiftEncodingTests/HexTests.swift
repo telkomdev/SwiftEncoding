@@ -14,6 +14,12 @@ final class HexTests: XCTestCase {
         XCTAssertNotEqual(encodeHex(data: "Dog‼🐶"), expected)
     }
 
+    func testHexEncodeUInt8ArrayShouldEqualToExpected() throws {
+        let expected: String = "737769667420666f7220696f73"
+
+        XCTAssertEqual(encodeHex(data: [115, 119, 105, 102, 116, 32, 102, 111, 114, 32, 105, 111, 115]), expected)
+    }
+
     func testHexDecodeShouldEqualToExpected() throws {
         let expected: String = "Dog‼🐶"
 

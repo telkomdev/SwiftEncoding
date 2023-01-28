@@ -1,6 +1,10 @@
+import Foundation
+
 public enum HexError: Error {
     case invalidHexChar
 }
+
+public func encodeHex(data: Data) -> String { encodeHex(data: data.bytes) }
 
 public func encodeHex(data: String) -> String { encodeHex(data: data.asByteArray()) }
 

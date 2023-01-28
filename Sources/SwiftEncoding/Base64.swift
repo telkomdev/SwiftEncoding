@@ -1,6 +1,10 @@
+import Foundation
+
 public enum Base64Error: Error {
     case invalidBase64Char
 }
+
+public func encodeBase64(data: Data) -> String { encodeBase64(data: data.bytes) }
 
 public func encodeBase64(data: String) -> String { encodeBase64(data: data.asByteArray()) }
 

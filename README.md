@@ -93,8 +93,8 @@ public struct App {
         print(fileManager.currentDirectoryPath)
         
         if let fileData = fileManager.contents(atPath: "\(fileManager.currentDirectoryPath)/../burger.png") {
-            let hexEncodeRes = encodeBase64(data: fileData)
-            print(hexEncodeRes)
+            let base64DecodeRes = encodeBase64(data: fileData)
+            print(base64DecodeRes)
         } else {
             print("error reading file")
         }

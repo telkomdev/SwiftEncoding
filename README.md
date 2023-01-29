@@ -78,3 +78,49 @@ public struct App {
     }
 }
 ```
+
+Encode raw binary data with `Base64`
+```swift
+import SwiftEncoding
+import Foundation;
+
+@main
+public struct App {
+
+    public static func main() {
+        let fileManager = FileManager.default
+
+        print(fileManager.currentDirectoryPath)
+        
+        if let fileData = fileManager.contents(atPath: "\(fileManager.currentDirectoryPath)/../burger.png") {
+            let hexEncodeRes = encodeBase64(data: fileData)
+            print(hexEncodeRes)
+        } else {
+            print("error reading file")
+        }
+    }
+}
+```
+
+Encode raw binary data with `Hex`
+```swift
+import SwiftEncoding
+import Foundation;
+
+@main
+public struct App {
+
+    public static func main() {
+        let fileManager = FileManager.default
+
+        print(fileManager.currentDirectoryPath)
+        
+        if let fileData = fileManager.contents(atPath: "\(fileManager.currentDirectoryPath)/../burger.png") {
+            let hexEncodeRes = encodeHex(data: fileData)
+            print(hexEncodeRes)
+        } else {
+            print("error reading file")
+        }
+    }
+}
+```
